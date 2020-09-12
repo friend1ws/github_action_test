@@ -1,0 +1,20 @@
+name: Greet Everyone
+
+on: [push]
+
+jobs:
+  build:
+    # Job name is Greeting
+    name: Greeting
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      # This step uses Github's hello-world-javascript-action:
+      - name: Hello world
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+        id: hello
+      - name: Echo the greeting's time
+        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
+     
